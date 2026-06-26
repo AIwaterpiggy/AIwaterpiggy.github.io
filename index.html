@@ -110,8 +110,9 @@
     }
     .profile-photo {
       width: 240px;
-      height: 300px;
-      object-fit: cover;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
       object-position: center top;
       border-radius: 26px;
       border: 5px solid rgba(255,255,255,0.25);
@@ -274,7 +275,7 @@
       .menu { display: none; }
       .hero { padding: 44px 0; }
       .hero-inner { grid-template-columns: 1fr; gap: 28px; }
-      .profile-photo { width: 190px; height: 238px; }
+      .profile-photo { width: 190px; height: auto; max-height: 238px; }
       .contact-grid { grid-template-columns: 1fr; }
       section { padding: 24px; }
       .timeline-item { grid-template-columns: 1fr; gap: 6px; }
