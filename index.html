@@ -272,14 +272,124 @@
       font-size: 0.92rem;
     }
     @media (max-width: 820px) {
-      .menu { display: none; }
-      .hero { padding: 44px 0; }
-      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
-      .profile-photo { width: 190px; height: auto; max-height: 238px; }
-      .contact-grid { grid-template-columns: 1fr; }
-      section { padding: 24px; }
-      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
-      .section-title { align-items: flex-start; flex-direction: column; gap: 4px; }
+      body {
+        line-height: 1.58;
+      }
+      .nav {
+        width: min(var(--maxw), calc(100% - 28px));
+        padding: 12px 0;
+      }
+      .brand {
+        font-size: 1rem;
+      }
+      .menu {
+        display: none;
+      }
+      .hero {
+        padding: 34px 0 38px;
+      }
+      .hero-inner {
+        width: min(var(--maxw), calc(100% - 28px));
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+      .profile-photo {
+        width: min(190px, 62vw);
+        height: auto;
+        max-height: none;
+        margin: 0 auto;
+        border-radius: 22px;
+        border-width: 4px;
+      }
+      .eyebrow {
+        justify-content: center;
+        font-size: 0.82rem;
+        line-height: 1.35;
+        margin-bottom: 14px;
+      }
+      h1 {
+        font-size: clamp(2.35rem, 13vw, 3.2rem);
+      }
+      .tags {
+        justify-content: center;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .tag {
+        padding: 6px 10px;
+        font-size: 0.82rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 22px;
+        max-width: 100%;
+      }
+      .contact-item {
+        padding: 11px 12px;
+        text-align: left;
+      }
+      main {
+        width: min(var(--maxw), calc(100% - 28px));
+        margin: 28px auto 48px;
+      }
+      section {
+        padding: 22px 18px;
+        margin-bottom: 18px;
+        border-radius: 18px;
+      }
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+      }
+      h2 {
+        font-size: 1.32rem;
+      }
+      .section-title span {
+        font-size: 0.78rem;
+      }
+      .intro {
+        font-size: 0.96rem;
+      }
+      .timeline {
+        gap: 10px;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 14px 0;
+      }
+      .time {
+        font-size: 0.92rem;
+      }
+      .pub-legend {
+        gap: 8px 12px;
+        margin-bottom: 16px;
+        font-size: 0.86rem;
+      }
+      .legend-chip {
+        min-width: 24px;
+        padding: 4px 8px;
+      }
+      .subheading {
+        margin: 20px 0 12px;
+        font-size: 1.02rem;
+      }
+      .pub-list {
+        padding-left: 18px;
+      }
+      .pub-list li {
+        margin-bottom: 14px;
+        padding-left: 2px;
+      }
+      footer {
+        padding: 26px 16px 38px;
+        font-size: 0.82rem;
+      }
     }
   </style>
 </head>
