@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aiwaterpiggy.github.io/sitemap.xml
