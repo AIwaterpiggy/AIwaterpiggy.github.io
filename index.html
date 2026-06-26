@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sangwoo Park's academic homepage: AI accelerators, RISC-V vector engines, and hardware/software optimization." />
+  <title>Sangwoo Park | AI Accelerator & RISC-V Vector Engine</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1b2430;
+      --muted: #5d6b7c;
+      --line: #dce3ed;
+      --primary: #183a63;
+      --primary-light: #e8f0fa;
+      --accent: #2f80ed;
+      --shadow: 0 18px 45px rgba(25, 55, 95, 0.10);
+      --radius: 22px;
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Noto Sans", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--primary);
+      font-size: 1.06rem;
+    }
+
+    .menu {
+      display: flex;
+      gap: 20px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .menu a { color: var(--muted); font-weight: 600; }
+    .menu a:hover { color: var(--primary); text-decoration: none; }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(47, 128, 237, 0.20), transparent 36%),
+        linear-gradient(135deg, #102846 0%, #183a63 58%, #245483 100%);
+      color: #fff;
+      padding: 72px 0 58px;
+    }
+
+    .hero-inner {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .profile-photo {
+      width: 240px;
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 26px;
+      border: 5px solid rgba(255,255,255,0.25);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+      background: #fff;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.22);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      letter-spacing: -0.06em;
+      line-height: 1.02;
+    }
+
+    .subtitle {
+      margin: 14px 0 22px;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.84);
+      max-width: 760px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 0;
+    }
+
+    .tag {
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      font-weight: 650;
+      font-size: 0.94rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+      max-width: 800px;
+    }
+
+    .contact-item {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .contact-label {
+      display: block;
+      color: rgba(255,255,255,0.66);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .contact-item a { color: #fff; font-weight: 700; }
+
+    main {
+      width: min(var(--maxw), calc(100% - 40px));
+      margin: 42px auto 72px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.55rem;
+      letter-spacing: -0.035em;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .intro {
+      font-size: 1.04rem;
+      color: #334155;
+      margin: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .time {
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .item-title {
+      margin: 0 0 4px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .item-desc {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pub-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -4px 0 20px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .legend-chip {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    .subheading {
+      margin: 26px 0 14px;
+      font-size: 1.12rem;
+      color: var(--primary);
+      letter-spacing: -0.025em;
+    }
+
+    .pub-list {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .pub-list li {
+      margin: 0 0 16px;
+      padding-left: 4px;
+    }
+
+    .pub-title { font-weight: 800; }
+    .author-mark { font-weight: 900; color: var(--primary); }
+    .venue { color: var(--muted); }
+    .note { color: var(--accent); font-weight: 800; }
+    sup { font-weight: 900; color: var(--primary); }
+
+    .placeholder {
+      padding: 22px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px dashed #b8c4d6;
+      color: var(--muted);
+      margin: 0;
+      font-weight: 650;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 34px 20px 54px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .menu { display: none; }
+      .hero { padding: 44px 0; }
+      .hero-inner { grid-template-columns: 1fr; gap: 28px; }
+      .profile-photo { width: 190px; height: 238px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      section { padding: 24px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+      .section-title { align-items: flex-start; flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top">Sangwoo Park</a>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#patents">Patents</a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="hero-inner">
+      <div>
+        <img class="profile-photo" src="https://swis.swu.ac.kr/std.aps.StdApsImage.ex?imgName=215213.png&amp;strCommand=getPrsnImage" alt="Portrait of Sangwoo Park" />
+      </div>
+      <div>
+        <div class="eyebrow">Assistant Professor, Department of Digital Media, Seoul Women's University</div>
+        <h1>Sangwoo Park</h1>
+        <div class="tags" aria-label="Research keywords">
+          <span class="tag">AI Accelerator</span>
+          <span class="tag">RISC-V Vector Engine</span>
+          <span class="tag">Hardware/Software Optimization</span>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item"><span class="contact-label">Office / Lab</span>Science Building II, Room 404, Seoul Women's University</div>
+          <div class="contact-item"><span class="contact-label">Phone</span><a href="tel:+8229705759">+82-2-970-5759</a></div>
+          <div class="contact-item"><span class="contact-label">Email</span><a href="mailto:psw0113@swu.ac.kr">psw0113@swu.ac.kr</a></div>
+          <div class="contact-item"><span class="contact-label">Specialization</span>AI Accelerator · Vector Engine</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <span>Profile</span>
+      </div>
+      <p class="intro">
+        Sangwoo Park is an Assistant Professor in the Department of Digital Media at Seoul Women's University. His research focuses on AI accelerator architecture, RISC-V vector-engine design, and hardware/software optimization for efficient AI systems.
+      </p>
+    </section>
+
+    <section id="education">
+      <div class="section-title">
+        <h2>Education</h2>
+        <span>Academic Background</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">2019.09 – 2023.02</div>
+          <div>
+            <p class="item-title">Ph.D., Korea University</p>
+            <p class="item-desc">Doctor of Engineering</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">2017.09 – 2019.09</div>
+          <div>
+            <p class="item-title">M.S., Korea University</p>
+            <p class="item-desc">Master of Engineering</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">2011 – 2017.09</div>
+          <div>
+            <p class="item-title">B.S., Soongsil University</p>
+            <p class="item-desc">Bachelor of Engineering</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-title">
+        <h2>Professional Experience</h2>
+        <span>Career</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time">2026.03 – Present</div>
+          <div>
+            <p class="item-title">Assistant Professor, Seoul Women's University</p>
+            <p class="item-desc">Department of Digital Media.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="time">2023.03 – 2026.02</div>
+          <div>
+            <p class="item-title">Samsung Electronics</p>
+            <p class="item-desc">AI accelerator research, RISC-V CPU design, and RISC-V vector-engine research.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-title">
+        <h2>Publications</h2>
+        <span>Research Output</span>
+      </div>
+      <div class="pub-legend">
+        <span class="legend-chip">*</span> First author
+        <span class="legend-chip">†</span> Corresponding author
+      </div>
+
+      <h3 class="subheading">International Publications</h3>
+      <ol class="pub-list">
+        <li>
+          Jangho Lim, Dongin Shin, Uichan Kim, Jinhyeok Choi, Kyung Min Kim, Sangwon Shin, Gunjae Koo, Taeweon Suh, and <span class="author-mark">Sangwoo Park<sup>†</sup></span>,
+          <span class="pub-title">“Performance Characterization and Optimization of LLM Inference on Tenstorrent AI Accelerators,”</span>
+          <span class="venue">International European Conference on Parallel and Distributed Computing (Euro-Par), August 2026.</span>
+          <span class="note">Accepted.</span>
+        </li>
+        <li>
+          Wonseok Jung, Junseok Kang, Sangwon Shin, Hongjun Um, Jangho Lim, Gunjae Koo, Yongjun Park, Taeweon Suh, and <span class="author-mark">Sangwoo Park<sup>†</sup></span>,
+          <span class="pub-title">“Three Birds, One Stone: Fast, Accurate-aware and Cost-Efficient Accelerator for Ternary LLM,”</span>
+          <span class="venue">ACM International Conference on Supercomputing (ICS), July 2026.</span>
+          <span class="note">Accepted.</span>
+        </li>
+        <li>
+          Jimin Lee, <span class="author-mark">Sangwoo Park<sup>*</sup></span>, Junho Huh, Sanghyo Jeong, Inhwan Kim, and Jae Min Kim,
+          <span class="pub-title">“I<sup>2</sup>SR: Immediate Interrupt Service Routine on RISC-V MCU to Control mmWave RF Transceivers,”</span>
+          <span class="venue">Design, Automation and Test in Europe Conference (DATE), March 2024.</span>
+        </li>
+        <li>
+          <span class="author-mark">Sangwoo Park<sup>*</sup></span> and Taeweon Suh,
+          <span class="pub-title">“Continual Learning with Speculative Backpropagation and Activation History,”</span>
+          <span class="venue">IEEE Access, Vol. 10, April 2022.</span>
+        </li>
+        <li>
+          <span class="author-mark">Sangwoo Park<sup>*</sup></span> and Taeweon Suh,
+          <span class="pub-title">“Speculative Backpropagation for CNN Parallel Training,”</span>
+          <span class="venue">IEEE Access, Vol. 8, November 2020.</span>
+        </li>
+        <li>
+          <span class="author-mark">Sangwoo Park<sup>*</sup></span> and Taeweon Suh,
+          <span class="pub-title">“Speculative Backpropagation in Deep Neural Network for Parallel Training,”</span>
+          <span class="venue">Design Automation Conference (DAC 2020), Work-in-Progress (WIP) Poster Session, July 2020.</span>
+        </li>
+      </ol>
+
+      <h3 class="subheading">Domestic Publications</h3>
+      <p class="placeholder">To be added.</p>
+    </section>
+
+    <section id="patents">
+      <div class="section-title">
+        <h2>Patents</h2>
+        <span>Intellectual Property</span>
+      </div>
+      <p class="placeholder">To be added.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Sangwoo Park. All rights reserved.
+  </footer>
+</body>
+</html>
