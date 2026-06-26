@@ -223,11 +223,13 @@
     .item-title { margin: 0 0 4px; font-weight: 800; color: var(--text); }
     .item-desc { margin: 0; color: var(--muted); }
     .pub-legend {
-      display: grid;
-      gap: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       margin: -4px 0 20px;
       color: var(--muted);
       font-size: 0.92rem;
+      align-items: center;
     }
     .legend-chip {
       display: inline-flex;
@@ -356,7 +358,10 @@
 
     <section id="patents">
       <div class="section-title"><h2>Patents</h2><span>Intellectual Property</span></div>
-      <p class="placeholder">To be added.</p>
+      <ol class="pub-list">
+        <li><span class="pub-title">“Device and Method for Continual Learning Based on Speculative Backpropagation and Activation History,”</span> <span class="venue">U.S. Patent Application No. 18/356,360, filed July 21, 2023.</span></li>
+        <li><span class="pub-title">“Method and Apparatus for Quantizing Artificial Neural Network,”</span> <span class="venue">Patent application, details to be updated.</span></li>
+      </ol>
     </section>
   </main>
 
